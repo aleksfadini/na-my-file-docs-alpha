@@ -21,9 +21,11 @@ We encourage government agencies, non-profit organizations, and developers from 
 
 ## Repositories and Project Structure
 
-The My File project is divided into six repositories to ensure a modular and maintainable structure. Each repository focuses on a specific aspect of the system and can be developed and deployed independently. This separation of concerns allows for better collaboration, flexibility, and scalability.
+My File follows a modern modular architecture, with the project divided into six independent repositories. Each repository serves a specific purpose and can be developed, deployed, and used independently, providing flexibility for developers and jurisdictions to adopt the components that best suit their needs.
 
-Note: Each repository has its own detailed documentation that covers its specific functionality, setup instructions, and usage guidelines.
+While each repository can stand on its own, they work together seamlessly to create the complete My File solution. Developers are encouraged to explore the individual repositories and utilize the components that align with their requirements.
+
+_Note: For this reason, each repository maintains its own comprehensive documentation, detailing its functionality, setup process, and usage instructions._
 
 ### na-my-file-docs
 

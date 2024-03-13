@@ -78,8 +78,9 @@ Before you start working with the "My File" application, ensure that you have th
 
 - You'll need a code editor to modify and customize the "My File" application code. "My File" was developed using Visual Studio Code (VS Code), which is free and open source, available here: https://code.visualstudio.com
 - Some popular code editors include:
-  - Atom: https://atom.io
+  - Vim: https://www.vim.org/
   - Sublime Text: https://www.sublimetext.com
+  - Atom: https://atom.io (deprecated)
 - Choose the code editor that best suits your preferences and install it on your machine.
   Once you have installed and configured these prerequisites, you're ready to proceed with setting up and deploying the "My File" application.
   Note: The specific versions mentioned above are based on the time of writing this documentation. Always refer to the official documentation of each tool for the most up-to-date and compatible versions.
