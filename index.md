@@ -1,6 +1,6 @@
 # Welcome to My File!
 
-Welcome to My File. This is the documentation hub, where you can orient yourself and find out how to use, deploy, modify, or simply learn more about My File.
+Welcome to My File! This is the documentation hub, where you can orient yourself and find out how to use, deploy, modify, or simply learn more about My File.
 
 ## What is My File?
 
@@ -19,11 +19,19 @@ My File is an open source project, which means that the source code is publicly 
 
 We encourage government agencies, non-profit organizations, and developers from any jurisdiction to take advantage of the My File open source project. By adopting and customizing My File to meet the specific needs of your community, you can provide your residents with a valuable service that can help streamline access to essential services and support.
 
-## File Upload and Management System
-
-This project is a file upload and management system designed to be adopted by non-profits and the Department of Homeless Services of NY. It consists of multiple repositories that work together to provide a comprehensive solution for uploading, storing, and managing documents from mobile devices and web browsers.
-
 ## Repositories and Project Structure
+
+The My File project is divided into six repositories to ensure a modular and maintainable structure. Each repository focuses on a specific aspect of the system and can be developed and deployed independently. This separation of concerns allows for better collaboration, flexibility, and scalability.
+
+Note: Each repository has its own detailed documentation that covers its specific functionality, setup instructions, and usage guidelines.
+
+### na-my-file-docs
+
+The documentation repository serves as a central hub for all project-related documentation. It includes comprehensive setup and installation guides, user manuals, API references, and other essential information. The documentation repository aims to provide clear instructions and guidance for developers, administrators, and end-users to effectively use and contribute to the file upload system.
+
+### na-my-file-infra
+
+This repository contains the infrastructure-as-code (IaC) definitions for provisioning and managing the necessary cloud resources for the file upload system. It utilizes AWS CDK (Cloud Development Kit) to define and deploy the required AWS services, such as storage buckets, serverless functions, and API gateways. The infrastructure code ensures a reproducible and scalable environment for the application.
 
 ### na-my-file-api
 
@@ -41,17 +49,9 @@ This repository houses the frontend client application for the file upload syste
 
 The core SDK package repository contains shared code, utilities, and libraries that are used across multiple components of the project. It provides a centralized and reusable set of functionalities to maintain consistency and avoid duplication of code. This package can be easily imported and utilized by other repositories within the project.
 
-### na-my-file-infra
-
-This repository contains the infrastructure-as-code (IaC) definitions for provisioning and managing the necessary cloud resources for the file upload system. It utilizes AWS CDK (Cloud Development Kit) to define and deploy the required AWS services, such as storage buckets, serverless functions, and API gateways. The infrastructure code ensures a reproducible and scalable environment for the application.
-
-### na-my-file-docs
-
-The documentation repository serves as a central hub for all project-related documentation. It includes comprehensive setup and installation guides, user manuals, API references, and other essential information. The documentation repository aims to provide clear instructions and guidance for developers, administrators, and end-users to effectively use and contribute to the file upload system.
-
 ## Getting Started
 
-To get started with the file upload and management system, please refer to the [Quickstart Guide] (quickstart.md) for detailed instructions on setting up the development environment, configuring the necessary dependencies, and deploying the application. The documentation also provides examples and guides on how to use the various features and functionalities of the system.
+To get started with the file upload and management system, please refer to the [Quickstart Guide](quickstart.md) for detailed instructions on setting up the development environment, configuring the necessary dependencies, and deploying the application. The documentation also provides examples and guides on how to use the various features and functionalities of the system.
 
 ## Contributing
 
