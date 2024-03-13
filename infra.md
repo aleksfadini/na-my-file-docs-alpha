@@ -6,7 +6,7 @@ At its core, the "My File" application consists of a user-friendly web interface
 
 The following diagram provides a high-level overview of the architecture:
 
-[Insert updated architecture diagram here once done](arch.png)
+[Infrastructre Diagram](arch.png)
 
 The key components of the "My File" application include:
 
@@ -84,43 +84,55 @@ Before you start working with the "My File" application, ensure that you have th
   Once you have installed and configured these prerequisites, you're ready to proceed with setting up and deploying the "My File" application.
   Note: The specific versions mentioned above are based on the time of writing this documentation. Always refer to the official documentation of each tool for the most up-to-date and compatible versions.
 
-3 Getting Started
+## Getting Started
+
 Now that you have the prerequisites in place, let's dive into setting up the "My File" application on your local machine.
-3.1 Cloning the Repository
+
+### Cloning the Repository
 
 - To get started, you'll need to clone the "My File" application repository to your local machine.
 - Open your terminal and navigate to the directory where you want to store the project.
 - Run the following command to clone the repository:Copy codegit clone https://github.com/your-organization/my-file-app.git
 - Once the cloning process is complete, navigate to the project directory:Copy codecd my-file-app
-  3.2 Installing Dependencies
+
+### Installing Dependencies
+
 - The "My File" application relies on various dependencies and packages managed through npm (Node Package Manager).
 - To install the required dependencies, run the following command in the project root directory:Copy codenpm install
 - This command will read the package.json file and install all the necessary packages and libraries.
-  3.3 Configuring AWS Credentials
+
+### Configuring AWS Credentials
+
 - To interact with AWS services and deploy the infrastructure, you need to set up your AWS credentials.
 - If you haven't already configured your AWS CLI, run the following command:Copy codeaws configure
 - Provide your AWS access key ID, secret access key, default region, and output format when prompted.
 - Alternatively, you can set the following environment variables in your terminal or in a .env file:Copy codeexport AWS_ACCESS_KEY_ID=your-access-key-id
 - export AWS_SECRET_ACCESS_KEY=your-secret-access-key
 - export AWS_DEFAULT_REGION=your-default-region
-  3.4 Setting Up Environment Variables
+
+### Setting Up Environment Variables
+
 - The "My File" application uses environment variables to store configuration settings.
 - Create a new file named .env in the project root directory.
 - Open the .env file and provide the necessary environment variables. For example:Copy codeAPP_NAME=my-file-app
 - DATABASE_URL=your-database-url
 - S3_BUCKET_NAME=your-s3-bucket-name
 - Refer to the .env.example file for a list of required environment variables and their descriptions.
-  3.5 Running the Application Locally
+
+### Running the Application Locally
+
 - To run the "My File" application locally and test its functionality, use the following command:Copy codenpm run start
 - This command will start the local development server and provide you with a URL to access the application in your web browser.
-  3.6 Running Tests
+
+### Running Tests
+
 - The "My File" application includes a test suite to ensure the correctness of its functionality.
 - To run the tests, use the following command:Copy codenpm run test
 - The test results will be displayed in the terminal, indicating which tests passed or failed.
   Congratulations! You have now successfully set up the "My File" application on your local machine. You can start exploring its features, making modifications, and testing your changes.
   In the next section, we'll dive deeper into the project structure and explore the different components of the application.
 
-4. Project Structure
+## Project Structure
 
 The "My File" application follows a modular and organized project structure to ensure maintainability and scalability. Let's explore the key directories and files that make up the project:
 
@@ -221,11 +233,11 @@ This project structure separates concerns and organizes the codebase into logica
 
 Understanding the project structure helps in navigating the codebase and makes it easier to locate specific files and components when working on the "My File" application.
 
-5. Configuration
+## Configuration
 
 The "My File" application uses various configuration settings to customize its behavior and adapt to different deployment environments. Let's explore how to configure the application and understand the different configuration options available.
 
-5.1 Environment-Specific Configurations
+### Environment-Specific Configurations
 
 - The application supports multiple deployment environments, such as development, staging, and production.
 - Each environment can have its own set of configuration values.
@@ -243,7 +255,7 @@ The "My File" application uses various configuration settings to customize its b
   };
   ```
 
-  5.2 Accessing Configuration Settings
+### Accessing Configuration Settings
 
 - The application uses a configuration module to load the appropriate configuration settings based on the current environment.
 - The configuration module is located at `src/config/index.ts`.
@@ -258,7 +270,7 @@ The "My File" application uses various configuration settings to customize its b
   // Output: 'http://localhost:3000' (in development environment)
   ```
 
-  5.3 Environment Variables
+### Environment Variables
 
 - In addition to the configuration files, the application also uses environment variables to store sensitive or dynamic configuration values.
 - Environment variables are loaded from the `.env` file located in the project root directory.
@@ -277,7 +289,7 @@ The "My File" application uses various configuration settings to customize its b
   const awsAccessKeyId = process.env.AWS_ACCESS_KEY_ID;
   ```
 
-  5.4 CDK Configuration
+### CDK Configuration
 
 - The AWS CDK (Cloud Development Kit) used for infrastructure provisioning also requires configuration.
 - The CDK configuration is stored in the `cdk.json` file located in the project root directory.
@@ -294,7 +306,7 @@ The "My File" application uses various configuration settings to customize its b
   }
   ```
 
-  5.5 Customizing Configuration
+### Customizing Configuration
 
 - To customize the configuration for your specific deployment, you can modify the configuration files and environment variables according to your requirements.
 - Update the values in the configuration files (`config.<environment>.ts`) to match your deployment settings.
@@ -305,16 +317,16 @@ By leveraging the configuration files, environment variables, and CDK configurat
 
 Remember to review and update the configuration settings whenever you deploy the application to a new environment or make changes to the infrastructure.
 
-6. Deployment
+## Deployment
 
 Deploying the "My File" application involves provisioning the necessary infrastructure and deploying the application code to the appropriate environments. Let's walk through the deployment process step by step.
 
-6.1 Prerequisites
+### Prerequisites
 
 - Ensure that you have completed the setup steps mentioned in the "Getting Started" section.
 - Make sure you have the required AWS credentials and permissions to deploy the infrastructure and application.
 
-  6.2 Infrastructure Provisioning
+### Infrastructure Provisioning
 
 - The infrastructure for the "My File" application is defined using the AWS Cloud Development Kit (CDK).
 - The CDK stacks are located in the `infra/lib/` directory.
@@ -345,7 +357,7 @@ Deploying the "My File" application involves provisioning the necessary infrastr
   8.  The CDK will prompt you to confirm the deployment. Review the changes and enter "y" to proceed.
   9.  Wait for the deployment to complete. The CDK will output the URLs and other relevant information.
 
-  6.3 Application Deployment
+### Application Deployment
 
 - After the infrastructure is provisioned, you can deploy the application code to the appropriate environments.
 - The application code is located in the `src/` directory.
@@ -360,7 +372,7 @@ Deploying the "My File" application involves provisioning the necessary infrastr
   4.  Configure the necessary environment variables and settings for the deployed application.
   5.  Start or update the application services to use the newly deployed code.
 
-  6.4 Continuous Integration and Continuous Deployment (CI/CD)
+### Continuous Integration and Continuous Deployment (CI/CD)
 
 - To streamline the deployment process and ensure consistent deployments, it's recommended to set up a CI/CD pipeline.
 - A CI/CD pipeline automates the build, test, and deployment steps whenever changes are made to the codebase.
@@ -369,14 +381,14 @@ Deploying the "My File" application involves provisioning the necessary infrastr
 - Define the deployment stages, such as building the application, running tests, and deploying to different environments (e.g., development, staging, production).
 - Ensure that the CI/CD pipeline has the necessary permissions and access to deploy to your AWS account.
 
-  6.5 Monitoring and Logging
+### Monitoring and Logging
 
 - After deploying the application, it's crucial to set up monitoring and logging to track its health and troubleshoot any issues.
 - Enable logging for the relevant AWS services (e.g., AWS Lambda, Amazon API Gateway) to capture application logs and errors.
 - Configure monitoring and alerting using tools like AWS CloudWatch to track key metrics and set up alerts for abnormal behavior.
 - Regularly review the logs and monitor the application's performance to identify and address any issues promptly.
 
-  6.6 Rolling Back and Versioning
+### Rolling Back and Versioning
 
 - In case of any issues or unexpected behavior after deployment, it's important to have a rollback strategy in place.
 - Use version control (e.g., Git) to tag and manage different versions of your application code.
@@ -388,11 +400,11 @@ By following these deployment steps and best practices, you can ensure a smooth 
 
 Remember to test the application thoroughly in different environments before deploying to production. Continuously monitor the application's health and performance, and be prepared to quickly respond to any issues that may arise.
 
-7. Infrastructure Components
+## Infrastructure Components
 
 The "My File" application leverages various AWS services and infrastructure components to build a scalable and secure file management system. Let's explore how the provided code handles each of these components.
 
-7.1 AWS Cognito for User Authentication and Authorization
+### AWS Cognito for User Authentication and Authorization
 
 - The code defines a Cognito User Pool in the `CognitoAuthStack` class located in `infra/lib/cognito-auth.stack.ts`.
 - The `userPool` is created with configuration options such as self-sign-up enabled, auto-verification of email, and password policy.
@@ -400,7 +412,7 @@ The "My File" application leverages various AWS services and infrastructure comp
 - The `preSignupLambdaFn` Lambda function is attached to the user pool as a pre-sign-up trigger to customize the sign-up process.
 - The Cognito configuration is exported as SSM parameters for easy reference in other parts of the application.
 
-  7.2 Amazon RDS for PostgreSQL Database
+### Amazon RDS for PostgreSQL Database
 
 - The code provisions an Amazon RDS PostgreSQL database in the `RdsPostgresqlStack` class located in `infra/lib/rds-postgres.stack.ts`.
 - The `postgresInstance` is created based on the deployment environment (dev or prod) with specified instance type, storage, and database name.
@@ -408,21 +420,21 @@ The "My File" application leverages various AWS services and infrastructure comp
 - In the dev environment, an EC2 bastion host is set up to enable SSH tunneling to the database for local development.
 - The database configuration is exported as SSM parameters for secure access by the application.
 
-  7.3 Amazon ElastiCache for Redis as In-Memory Caching
+### Amazon ElastiCache for Redis as In-Memory Caching
 
 - The code sets up an Amazon ElastiCache Redis cluster in the `RedisElasticacheStack` class located in `infra/lib/redis-elasticache.stack.ts`.
 - The `redisElasticacheCluster` is created with specified cache node type, number of nodes, and security group settings.
 - The Redis cluster is associated with a subnet group to specify the subnets in which the nodes will be launched.
 - The Redis configuration, including the cluster endpoint and port, is exported as SSM parameters for use by the application.
 
-  7.4 Amazon S3 for File Storage
+### Amazon S3 for File Storage
 
 - The code creates an Amazon S3 bucket for file storage in the `AppWebUIStack` class located in `infra/lib/app-web-ui.stack.ts`.
 - The `bucketWebApp` is created with configuration options such as bucket name, auto-delete objects, and removal policy.
 - The S3 bucket is used to store and serve static files for the web application.
 - The bucket configuration, including the bucket name, is exported as SSM parameters for reference in the application.
 
-  7.5 AWS Lambda Functions for Serverless Computing
+### AWS Lambda Functions for Serverless Computing
 
 - The code defines several Lambda functions for various purposes throughout the application.
 - Examples include the `preSignupLambdaFn` for Cognito pre-sign-up trigger, `wsConnectHandler` for WebSocket connection handling, and `wsMessageHandler` for WebSocket message processing.
@@ -430,21 +442,21 @@ The "My File" application leverages various AWS services and infrastructure comp
 - The functions are configured with appropriate runtime, entry point, environment variables, and permissions.
 - The Lambda functions are integrated with other services such as API Gateway and DynamoDB.
 
-  7.6 Amazon API Gateway for Creating and Managing APIs
+### Amazon API Gateway for Creating and Managing APIs
 
 - The code sets up an API Gateway in the `ApiStack` class located in `infra/lib/api.stack.ts`.
 - The `httpApi` is created with configuration options such as CORS settings and API name.
 - The API Gateway is used to expose RESTful APIs for the application.
 - The API Gateway configuration, including the API ID and endpoint, is exported as SSM parameters.
 
-  7.7 Amazon DynamoDB for Storing WebSocket Connection Information
+### Amazon DynamoDB for Storing WebSocket Connection Information
 
 - The code creates a DynamoDB table to store WebSocket connection information in the `WebsocketApiStack` class located in `infra/lib/websocket-api.stack.ts`.
 - The `dynamodbWebsocketConnectionTable` is created with a partition key of `connectionId` and additional settings like read/write capacity and time-to-live (TTL).
 - The DynamoDB table is used to store and manage WebSocket connection details.
 - The table configuration, including the table name, is exported as SSM parameters.
 
-  7.8 Amazon SQS for Message Queuing and Broadcasting
+### Amazon SQS for Message Queuing and Broadcasting
 
 - The code sets up an Amazon SQS queue for message queuing and broadcasting in the `WebsocketApiStack` class.
 - The `sqsBroadcastMessageQueue` is created with a specified queue name.
@@ -455,11 +467,11 @@ These infrastructure components work together to provide a robust and scalable f
 
 By leveraging these managed services from AWS, the "My File" application achieves high availability, scalability, and security without the need for extensive infrastructure management overhead.
 
-8. Database Management
+## Database Management
 
 The "My File" application uses Prisma, a modern database toolkit, for managing and interacting with the database. Prisma provides an intuitive way to define the database schema, perform database migrations, and query the database using a type-safe API. Let's explore how the provided code handles database management.
 
-8.1 Database Schema Definition
+### Database Schema Definition
 
 - The database schema is defined in the `schema.prisma` file located in the `prisma/` directory.
 - The schema file uses the Prisma schema language to define the data models, relations, and configurations for the database.
@@ -477,7 +489,7 @@ The "My File" application uses Prisma, a modern database toolkit, for managing a
   }
   ```
 
-  8.2 Database Connection and Configuration
+### Database Connection and Configuration
 
 - The database connection and configuration are handled in the `src/lib/db.ts` file.
 - The `getDB` function is responsible for creating and returning an instance of the Prisma client.
@@ -485,7 +497,7 @@ The "My File" application uses Prisma, a modern database toolkit, for managing a
 - The Prisma client is instantiated with the connection string and additional configuration options, such as logging settings.
 - The `getDB` function ensures that only one instance of the Prisma client is created and reused throughout the application.
 
-  8.3 Database Queries and Operations
+### Database Queries and Operations
 
 - The application uses the Prisma client to perform database queries and operations.
 - The Prisma client provides a type-safe and intuitive API for interacting with the database.
@@ -499,7 +511,7 @@ The "My File" application uses Prisma, a modern database toolkit, for managing a
 - The Prisma client supports various query operations, such as `findUnique`, `findMany`, `create`, `update`, `delete`, and more.
 - The queries are written using the Prisma client's fluent API, which allows for easy composition and filtering of data.
 
-  8.4 Database Migrations
+### Database Migrations
 
 - Database migrations are managed using Prisma's migration system.
 - Migrations are defined in the `prisma/migrations/` directory and are automatically created when changes are made to the schema file.
@@ -507,14 +519,14 @@ The "My File" application uses Prisma, a modern database toolkit, for managing a
 - To run the migrations and sync the database with the schema, the `npx prisma migrate deploy` command can be used.
 - The migration process ensures that the database schema stays in sync with the application's data models.
 
-  8.5 Database Seeding and Data Population
+### Database Seeding and Data Population
 
 - The code does not include explicit database seeding or data population scripts.
 - However, Prisma supports data seeding through the use of seed scripts, which can be defined in the `prisma/seed.ts` file.
 - Seed scripts allow for the initial population of the database with sample or default data.
 - To run the seed script, the `npx prisma db seed` command can be used.
 
-  8.6 Database Access and Security
+### Database Access and Security
 
 - The database connection string, which includes the database credentials, is stored securely in the `DB_CREDS` environment variable.
 - The connection string is parsed and used to instantiate the Prisma client, ensuring that the database credentials are not exposed in the codebase.
@@ -525,11 +537,11 @@ By leveraging Prisma for database management, the "My File" application benefits
 
 Remember to follow database security best practices, regularly backup your data, and monitor database performance to ensure a smooth and reliable user experience.
 
-9. Security Considerations
+## Security Considerations
 
 Security is a critical aspect of any application, and the "My File" application takes several measures to ensure the protection of sensitive data and resources. Let's explore the security considerations in relation to the provided code.
 
-9.1 Explanation of IAM Roles, Policies, and Permissions
+### Explanation of IAM Roles, Policies, and Permissions
 
 - The code uses AWS Identity and Access Management (IAM) to manage access to AWS resources.
 - IAM roles are created to grant specific permissions to AWS services and resources used by the application.
@@ -547,7 +559,7 @@ Security is a critical aspect of any application, and the "My File" application 
   ```
 - It is important to follow the principle of least privilege and grant only the necessary permissions to each IAM role and resource.
 
-  9.2 Best Practices for Securing Sensitive Information
+### Best Practices for Securing Sensitive Information
 
 - The code demonstrates several best practices for securing sensitive information, such as database credentials and API keys.
 - Sensitive information is stored using AWS Systems Manager Parameter Store, which provides a secure way to store and retrieve configuration data.
@@ -563,7 +575,7 @@ Security is a critical aspect of any application, and the "My File" application 
   ```
 - It is crucial to avoid hardcoding sensitive information in the codebase and instead rely on secure storage mechanisms like AWS Systems Manager Parameter Store or AWS Secrets Manager.
 
-  9.3 Recommendations for Implementing Additional Security Measures
+### Recommendations for Implementing Additional Security Measures
 
 - Encryption:
   - Enable encryption at rest for sensitive data stored in Amazon S3 buckets, Amazon RDS databases, and Amazon ElastiCache Redis clusters.
