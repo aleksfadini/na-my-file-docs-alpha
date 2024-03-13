@@ -6,7 +6,7 @@ At its core, the "My File" application consists of a user-friendly web interface
 
 The following diagram provides a high-level overview of the architecture:
 
-[Insert updated architecture diagram here once done](arch.md)
+[Insert updated architecture diagram here once done](arch.png)
 
 The key components of the "My File" application include:
 
