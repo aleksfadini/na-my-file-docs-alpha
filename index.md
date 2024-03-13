@@ -1,10 +1,29 @@
-# My File Overview
+# Welcome to My File!
+
+Welcome to My File. This is the documentation hub, where you can orient yourself and find out how to use, deploy, modify, or simply learn more about My File.
+
+## What is My File?
+
+My File is a document storage and sharing mobile-first website developed, managed, and piloted by New America. It provides residents of a jurisdiction a safe and secure place to manage their family’s vital documents. My File makes it easy to decide what documents to share and unshare and decide who to share the documents with.
+
+### Key Features
+
+- Upload and manage secure, encrypted backups of vital documents like ID cards, social security cards, utility bills, etc.
+- View, download or delete anytime.
+- Share when applying for temporary shelter, housing or any other service.
+- Administrators can sort, download and update the status of documents.
+
+### Open Source and Available for All Jurisdictions
+
+My File is an open source project, which means that the source code is publicly available and can be freely used, modified, and distributed by anyone. We believe that every jurisdiction should have access to a powerful tool like My File to help their residents securely store and share important documents.
+
+We encourage government agencies, non-profit organizations, and developers from any jurisdiction to take advantage of the My File open source project. By adopting and customizing My File to meet the specific needs of your community, you can provide your residents with a valuable service that can help streamline access to essential services and support.
 
 ## File Upload and Management System
 
 This project is a file upload and management system designed to be adopted by non-profits and the Department of Homeless Services of NY. It consists of multiple repositories that work together to provide a comprehensive solution for uploading, storing, and managing documents from mobile devices and web browsers.
 
-## Repositories
+## Repositories and Project Structure
 
 ### na-my-file-api
 
@@ -32,7 +51,7 @@ The documentation repository serves as a central hub for all project-related doc
 
 ## Getting Started
 
-To get started with the file upload and management system, please refer to the documentation repository (na-my-file-docs) for detailed instructions on setting up the development environment, configuring the necessary dependencies, and deploying the application. The documentation also provides examples and guides on how to use the various features and functionalities of the system.
+To get started with the file upload and management system, please refer to the [Quickstart Guide] (quickstart.md) for detailed instructions on setting up the development environment, configuring the necessary dependencies, and deploying the application. The documentation also provides examples and guides on how to use the various features and functionalities of the system.
 
 ## Contributing
 
