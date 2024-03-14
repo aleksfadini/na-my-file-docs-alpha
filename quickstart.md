@@ -2,7 +2,7 @@
 
 This guide will walk you through the process of deploying the My File repositories, excluding the documentation repositories. By following these steps, you'll have the My File system up and running in no time.
 
-## Preliminary Note
+### Preliminary Note
 
 This is the quickest way to get My File up and running, without using configuration scripts. This will deploy a production suite, databases, and app. We instead reccomend you deploy and test a _dev_ version before.
 
@@ -13,11 +13,31 @@ Before you begin, ensure that you have the following software installed on your 
 - Node.js (version 14 or later)
 - npm (Node Package Manager)
 
-## Installation
+### Node.js Installation
 
-1. Install Node.js by following the instructions for your operating system:
+Install Node.js and npm by following the instructions for your operating system:
 
-   - [Node.js Installation Guide](https://nodejs.org/en/download/)
+- [Node.js Installation Guide](https://nodejs.org/en/download/)
+- [Downloading and installing Node.js and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
+
+## Quickest Installation and Deployment
+
+If you would like to do the fastest installation and deployment, simply use the script included in this repository. In order to do so, do the following:
+
+launch the script:
+
+./deploy-prod.sh
+
+The script will ask you where you wish to install the repository files before deployment, within your home folder.
+Follow the instruction.
+
+If you prefer to do a slilghly longer but manual installation, follow the instructions on the next section, _Manual Installation and Deployment_
+
+## Manual Installation and Deployment
+
+These are the instructions for the manual installation and deployment, which also follow what the install script is doing.
+
+### Installation
 
 2. Clone the required My File repositories:
    ```bash
@@ -28,7 +48,7 @@ Before you begin, ensure that you have the following software installed on your 
    git clone https://github.com/your-org/na-my-file-core-sdk-pkg.git
    ```
 
-## Deployment
+### Deployment
 
 1. Deploy the infrastructure:
 
@@ -51,7 +71,7 @@ Before you begin, ensure that you have the following software installed on your 
    ```bash
    cd ../na-my-file-api-client
    npm install
-   npm run stack-deploy
+   npm run stack-deploy-prod
    ```
 
 4. Deploy the client:
