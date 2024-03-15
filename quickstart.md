@@ -22,20 +22,23 @@ Install Node.js and npm by following the instructions for your operating system:
 
 ## Quickest Installation and Deployment
 
-If you would like to do the fastest installation and deployment, simply use the script included in this repository. In order to do so, do the following:
+For the fastest installation and deployment of My File, you can utilize the provided script included in this repository. To do so, follow these steps:
 
-launch the script:
+1. Launch the script by running the following command in your terminal:
 
-./deploy-prod.sh
+   ```
+   ./deploy-prod.sh
+   ```
 
-The script will ask you where you wish to install the repository files before deployment, within your home folder.
-Follow the instruction.
+2. The script will prompt you to specify the location within your home folder where you wish to install the repository files before deployment. Please provide the desired path when requested.
 
-If you prefer to do a slilghly longer but manual installation, follow the instructions on the next section, _Manual Installation and Deployment_
+3. Follow the on-screen instructions to complete the installation and deployment process.
+
+If you prefer a slightly longer but manual installation process, please refer to the next section, _Manual Installation and Deployment_, for detailed instructions.
 
 ## Manual Installation and Deployment
 
-These are the instructions for the manual installation and deployment, which also follow what the install script is doing.
+This section provides instructions for manually installing and deploying My File. These steps are equivalent to what the installation script performs.
 
 ### Installation
 
