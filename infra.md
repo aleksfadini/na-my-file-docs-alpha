@@ -1,8 +1,14 @@
+# My File: Infrastructure
+
 ## Introduction and Infrastructure Overview
+
+### My File
 
 Welcome to the "My File" application! This project is designed to provide a seamless and secure file management experience for users, built on a robust and scalable infrastructure. The "My File" application aims to simplify documents and file storage, sharing, and collaboration while ensuring data privacy and integrity.
 
 At its core, the "My File" application consists of a user-friendly web interface that allows users to upload, organize, and access their files from anywhere. The application leverages a range of AWS services to provide a reliable and efficient backend infrastructure that can handle high volumes of data and traffic.
+
+### This repository: Infra
 
 The following diagram provides a high-level overview of the architecture:
 
