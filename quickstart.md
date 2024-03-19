@@ -53,7 +53,14 @@ This section provides instructions for manually installing and deploying My File
 
 ### Deployment
 
-1. Deploy the infrastructure:
+1. Install the core SDK package:
+
+   ```bash
+   cd ../na-my-file-core-sdk-pkg
+   npm install
+   ```
+
+2. Deploy the infrastructure:
 
    ```bash
    cd na-my-file-infra
@@ -61,7 +68,7 @@ This section provides instructions for manually installing and deploying My File
    npm run stack-deploy
    ```
 
-2. Deploy the API:
+3. Deploy the API:
 
    ```bash
    cd ../na-my-file-api
@@ -69,7 +76,7 @@ This section provides instructions for manually installing and deploying My File
    npm run stack-deploy
    ```
 
-3. Deploy the API client:
+4. Deploy the API client:
 
    ```bash
    cd ../na-my-file-api-client
@@ -77,18 +84,12 @@ This section provides instructions for manually installing and deploying My File
    npm run stack-deploy-prod
    ```
 
-4. Deploy the client:
+5. Deploy the client:
 
    ```bash
    cd ../na-my-file-client
    npm install
    npm run deploy-prod
-   ```
-
-5. Install the core SDK package:
-   ```bash
-   cd ../na-my-file-core-sdk-pkg
-   npm install
    ```
 
 Congratulations! You have successfully deployed the My File repositories. The system should now be up and running.

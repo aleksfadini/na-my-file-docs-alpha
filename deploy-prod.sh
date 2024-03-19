@@ -55,6 +55,12 @@ do
     fi
 done
 
+# Install the core SDK package
+echo -e "${GREEN}Installing core SDK package...${NC}"
+cd na-my-file-core-sdk-pkg
+npm install
+cd ..
+
 # Deploy the infrastructure
 echo -e "${GREEN}Deploying infrastructure...${NC}"
 cd na-my-file-infra
@@ -81,12 +87,6 @@ echo -e "${GREEN}Deploying client...${NC}"
 cd na-my-file-client
 npm install
 npm run deploy-prod
-cd ..
-
-# Install the core SDK package
-echo -e "${GREEN}Installing core SDK package...${NC}"
-cd na-my-file-core-sdk-pkg
-npm install
 cd ..
 
 echo -e "${GREEN}Deployment completed successfully!${NC}"

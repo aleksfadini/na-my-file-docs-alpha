@@ -2,7 +2,7 @@
 
 ## Purpose and Functionality:
 
-- This repository contains the core API for My File
+- This repository contains the core API for My File.
 - It provides routes and handlers for managing users, user files, cases, workflows, user family members, case applicants, and more.
 - The API is built using Node.js, Express, and Prisma ORM with a PostgreSQL database.
 
