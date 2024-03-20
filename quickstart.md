@@ -42,14 +42,15 @@ This section provides instructions for manually installing and deploying My File
 
 ### Installation
 
-2. Clone the required My File repositories:
-   ```bash
-   git clone https://github.com/your-org/na-my-file-infra.git
-   git clone https://github.com/your-org/na-my-file-api.git
-   git clone https://github.com/your-org/na-my-file-api-client.git
-   git clone https://github.com/your-org/na-my-file-client.git
-   git clone https://github.com/your-org/na-my-file-core-sdk-pkg.git
-   ```
+Clone the required My File repositories:
+
+```bash
+git clone https://github.com/your-org/na-my-file-infra.git
+git clone https://github.com/your-org/na-my-file-api.git
+git clone https://github.com/your-org/na-my-file-api-client.git
+git clone https://github.com/your-org/na-my-file-client.git
+git clone https://github.com/your-org/na-my-file-core-sdk-pkg.git
+```
 
 ### Deployment
 

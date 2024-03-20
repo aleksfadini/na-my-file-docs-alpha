@@ -26,3 +26,7 @@ Also, time the installation and deployments
 
 - [ ] Final test for `deploy-dev.sh`
 - [ ] Final test for `deploy-prod.sh`
+
+## Other
+
+- [ ] describe My File using the shared slides copy
