@@ -66,7 +66,8 @@ git clone https://github.com/your-org/na-my-file-core-sdk-pkg.git
    ```bash
    cd na-my-file-infra
    npm install
-   npm run stack-deploy
+   npm run cdk-bootstrap
+   npm run stack-deploy-dev
    ```
 
 3. Deploy the API:

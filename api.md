@@ -6,7 +6,7 @@
 - It provides routes and handlers for managing users, user files, cases, workflows, user family members, case applicants, and more.
 - The API is built using Node.js, Express, and Prisma ORM with a PostgreSQL database.
 
-## Key Observations:
+## Main Components
 
 1. The API follows a lambda-proxy pattern, with a main `lambda-proxy.ts` file that serves as the entry point. It loads route configurations from `routes-config.ts` and maps them to individual route handler files.
 
@@ -21,5 +21,7 @@
 6. AWS CDK is used to define the infrastructure. The main stack is in `infra/lib/cdk-stack.ts`. It provisions the lambda function for the API, sets up API Gateway HTTP proxy integration, and a VPC.
 
 7. GitHub Actions workflows under `.github/workflows` automate CI/CD pipelines for building, testing and deploying the API.
+
+## Code Ethos
 
 8. The code follows best practices with proper error handling, input validation using schemas, and modular structure.
