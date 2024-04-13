@@ -65,6 +65,7 @@ cd ..
 echo -e "${GREEN}Deploying infrastructure...${NC}"
 cd na-my-file-infra
 npm install
+npm run cdk-bootstrap
 npm run stack-deploy
 cd ..
 
