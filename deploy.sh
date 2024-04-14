@@ -17,13 +17,33 @@ echo -e "${BLUE}Welcome to the My File Production Environment Setup and Deployme
 echo -e "${BLUE}This script will guide you through the process of setting up and deploying the My File application.${NC}"
 echo
 
+#####################
+## Dependencies check
+######################
+echo -e "${NC}Checking Dependencies...${NC}"
+# Check if git is installed
+if ! command -v git &> /dev/null
+then
+    echo -e "${RED}git is not installed. Please install git and try again.${NC}"
+    exit 1
+fi
 # Check if Node.js is installed
 if ! command -v node &> /dev/null
 then
     echo -e "${RED}Node.js is not installed. Please install Node.js and try again.${NC}"
     exit 1
 fi
+# Check if npm is installed
+if ! command -v npm &> /dev/null
+then
+    echo -e "${RED}npm is not installed. Please install npm and try again.${NC}"
+    exit 1
+fi
+echo -e "${GREEN}Dependencies found!${NC}"
 
+#######################
+## Questions / User Input
+#######################
 # Prompt user for AWS profile name
 read -p "Enter your AWS profile name: " aws_profile
 
@@ -44,10 +64,15 @@ else
     environment="prod"
 fi
 
+#######################
+## Folder Prep and Repo Cloning
+#######################
+echo -e "${NC}Setting Up Folders...${NC}"
 # Create the new folder within the current directory
 mkdir -p "$new_folder"
 cd "$new_folder" || exit
-
+echo -e "${GREEN}Done!${NC}"
+echo -e "${NC}Cloning Repos...${NC}"
 # Clone the required repositories
 repos=(
     "https://github.com/aleksfadini/na-my-file-infra.git"
@@ -66,9 +91,14 @@ do
         echo -e "${GREEN}$repo_name already exists. Skipping clone.${NC}"
     fi
 done
+echo -e "${GREEN}Done!${NC}"
 
+#######################
+## Installation and Deployment
+#######################
+echo -e "${NC}Starting Installation...${NC}"
 # Install the core SDK package
-echo -e "${GREEN}Installing core SDK package...${NC}"
+echo -e "${NC}Installing core SDK package...${NC}"
 cd na-my-file-core-sdk-pkg
 npm install || { echo -e "${RED}Failed to install core SDK package.${NC}"; exit 1; }
 cd ..
@@ -85,18 +115,17 @@ else
 fi
 cd ..
 
-# Deploy the API
-echo -e "${GREEN}Deploying API...${NC}"
-cd na-my-file-api
-npm install || { echo -e "${RED}Failed to install dependencies for API.${NC}"; exit 1; }
-AWS_PROFILE="$aws_profile" npm run stack-deploy || { echo -e "${RED}Failed to deploy API.${NC}"; exit 1; }
-cd ..
-
-# Deploy the API client
-echo -e "${GREEN}Deploying API client...${NC}"
+# Install the API client dependencies
+echo -e "${GREEN}Installing API client dependencies...${NC}"
 cd na-my-file-api-client
 npm install || { echo -e "${RED}Failed to install dependencies for API client.${NC}"; exit 1; }
-AWS_PROFILE="$aws_profile" npm run stack-deploy || { echo -e "${RED}Failed to deploy API client.${NC}"; exit 1; }
+cd ..
+
+# Deploy the API
+echo -e "${GREEN}Deploying API...${NC}"
+cd my-file-api
+npm install || { echo -e "${RED}Failed to install dependencies for API.${NC}"; exit 1; }
+npm run generate-oas || { echo -e "${RED}Failed to generate OAS.${NC}"; exit 1; }
 cd ..
 
 # Deploy the client
