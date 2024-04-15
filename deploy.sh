@@ -75,11 +75,11 @@ echo -e "${GREEN}Done!${NC}"
 echo -e "${NC}Cloning Repos...${NC}"
 # Clone the required repositories
 repos=(
-    "https://github.com/aleksfadini/na-my-file-infra.git"
-    "https://github.com/aleksfadini/na-my-file-api.git"
-    "https://github.com/aleksfadini/na-my-file-api-client.git"
-    "https://github.com/aleksfadini/na-my-file-client.git"
-    "https://github.com/aleksfadini/na-my-file-core-sdk-pkg.git"
+    "https://github.com/productlabllc/na-my-file-infra.git"
+    "https://github.com/productlabllc/na-my-file-api.git"
+    "https://github.com/productlabllc/na-my-file-api-client.git"
+    "https://github.com/productlabllc/na-my-file-client.git"
+    "https://github.com/productlabllc/na-my-file-core-sdk-pkg.git"
 )
 
 for repo in "${repos[@]}"
@@ -123,7 +123,7 @@ cd ..
 
 # Deploy the API
 echo -e "${GREEN}Deploying API...${NC}"
-cd my-file-api
+cd na-my-file-api
 npm install || { echo -e "${RED}Failed to install dependencies for API.${NC}"; exit 1; }
 npm run generate-oas || { echo -e "${RED}Failed to generate OAS.${NC}"; exit 1; }
 cd ..
