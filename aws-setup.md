@@ -1,71 +1,127 @@
-# Creating an IAM User for Infrastructure Deployment
+# AWS Deployment Guide for MyFile App
 
-This document outlines the steps to create an IAM (Identity and Access Management) user with the necessary permissions to deploy infrastructure on your AWS account. Using an IAM user instead of the root user is a recommended best practice for security and accountability.
+## Overview
 
-## Prerequisites
+This guide walks through the process of setting up an AWS account and configuring it to deploy the MyFile application. It covers everything from creating the initial account to configuring an AWS profile that can be used for MyFile deployments.
 
-1. An AWS account with root user access (you would need a credit card and an email address for that).
-2. Access to the AWS Management Console (you would need the login and password obtain in step 1).
+Select the guide version that best fits your background and expertise level:
 
-## Steps
+- [Expert Version (for Admins/DevOps)](#expert-version-for-adminsdevops)
+- [Novice Version (Requires No Prior AWS Knowledge)](#novice-version-requires-no-prior-aws-knowledge)
 
-1. **Sign in to the AWS Management Console:**
+## Expert Version (for Admins/DevOps)
 
-   - Open your web browser and navigate to the AWS Management Console.
-   - Sign in using your root user account credentials.
+### Step 1: Create an AWS Account
 
-2. **Navigate to the IAM service:**
+- Sign up for an AWS account at [aws.amazon.com](https://aws.amazon.com)
+- Provide an email address and credit card for billing
+- Consider using an AWS Organization for centralized billing and control
 
-   - Once signed in, click on the "Services" menu at the top of the page.
-   - Search for "IAM" in the search bar and click on "IAM" to open the IAM dashboard.
+![AWS account creation](aws-account-creation.png)
 
-3. **Create a new IAM user:**
+### Step 2: Create an IAM User
 
-   - In the IAM dashboard, click on "Users" in the left sidebar.
-   - Click on the "Add user" button.
-   - Enter a user name for the new IAM user (e.g., "deployment-user").
-   - Select the access type for the user:
-     - Select "Programmatic access" if you want to use the AWS CLI or AWS SDKs for deployment.
-     - Select "AWS Management Console access" if you want the user to have access to the AWS Management Console.
-   - Set the console password and password reset requirements for the user (if applicable).
-   - Click on "Next: Permissions."
+- Navigate to the IAM (Identity and Access Management) console
+- Create a new user and select "Programmatic access"
+- Attach appropriate permissions policies (e.g. Administrator Access for full control)
+- Save the generated Access Key ID and Secret Access Key
 
-4. **Assign permissions to the user:**
+![IAM user creation](iam-user-creation.png)
 
-   - On the permissions page, you have three options:
-     - Attach existing policies directly: Select existing IAM policies that grant the necessary permissions for deployment. Look for policies related to the services you'll be using (e.g., S3, CloudFront, Route 53, ACM Private CA).
-     - Create a new policy: If you can't find a suitable existing policy, create a new policy by clicking on "Create policy." Use the visual editor or JSON editor to define the permissions required for your deployment.
-     - Add user to a group: If you have an existing IAM group with the necessary permissions, add the user to that group.
-   - Review the permissions and click on "Next: Tags."
+### Step 3: Configure the AWS CLI
 
-5. **Add tags (optional):**
+- Install the AWS CLI on your local machine
+- Run `aws configure` and enter the IAM user's Access Key ID and Secret Access Key
+- Specify a default region and output format
 
-   - If desired, add any tags to the user for organizational or tracking purposes.
-   - Click on "Next: Review."
+```bash
+$ aws configure
+AWS Access Key ID [None]: AKIAIOSFODNN7EXAMPLE
+AWS Secret Access Key [None]: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+Default region name [None]: us-west-2
+Default output format [None]: json
+```
 
-6. **Review and create the user:**
+### Step 4: Create a Named Profile for MyFile (Optional)
 
-   - Review the user details and permissions.
-   - If everything looks correct, click on "Create user."
-   - After the user is created, you'll see the user's Access Key ID and Secret Access Key (if you selected programmatic access).
-   - Make sure to download or copy these credentials securely, as you won't be able to view the Secret Access Key again.
+To use a specific AWS account or IAM user for MyFile deployments, configure a named profile
+Run `aws configure --profile MyFileDeployment`
+Specify the Access Key ID, Secret Access Key, region and output for the MyFile IAM user
 
-7. **Configure the AWS CLI:**
+```bash
+$ aws configure --profile MyFileDeployment
+AWS Access Key ID [None]: [Copy your key ID from the AWS website!]
+AWS Secret Access Key [None]: [Copy your key ID from the AWS website!]
+Default region name [None]: us-east-1 [or whatever you prefer!]
+Default output format [None]: json
+```
 
-   - On your local machine, install the AWS CLI if you haven't already.
-   - Open a terminal or command prompt.
-   - Run the command `aws configure` and provide the Access Key ID and Secret Access Key when prompted.
-   - Set the default region and output format as per your preferences.
+You now have an AWS account fully configured for programmatic access via the AWS CLI and SDKs. The default or `MyFileDeployment` profile can be used to authenticate deployments of the MyFile application to AWS.
 
-8. **Use the IAM user for deployment:**
-   - You can now use the IAM user's credentials to deploy your infrastructure using the AWS CLI or AWS SDKs.
-   - Make sure to use the appropriate commands and tools based on your deployment setup; for _My File_, follow the installation and deployment guides.
+## Novice Version (Requires No Prior AWS Knowledge)
 
-## Best Practices
+### Introduction
 
-- Follow the principle of least privilege and grant only the permissions necessary for the IAM user to perform the deployment tasks.
-- Regularly review and update the user's permissions to ensure they align with your security best practices.
-- Consider using IAM roles instead of long-term access keys for EC2 instances or Lambda functions that require AWS permissions.
-- Enable multi-factor authentication (MFA) for the IAM user to add an extra layer of security.
+Amazon Web Services (AWS) is a cloud platform offering a wide variety of services for running applications, storing data, and more. To deploy the MyFile application on AWS, you first need to create an AWS account and set up access. Don't worry if you're totally new to AWS - this guide will walk you through each step!
 
-If you encounter any issues or need further assistance, please refer to the AWS IAM documentation.
+### Step 1: Create an AWS Account
+
+The first thing you need to do to use AWS is sign up for an account:
+
+1. Go to the AWS website at [aws.amazon.com](https://aws.amazon.com)
+2. Click the "Create an AWS Account" button
+3. Enter an email address, password, and account name. The email and account name must be unique.
+4. Provide contact information and a credit card that will be used for billing. You won't be charged unless you use paid services.
+5. Verify your identity with a phone call or text message.
+6. Select the "Basic" support plan (free) for now.
+
+Congrats, you now have an AWS account! Next you'll set up a user for deploying the MyFile app.
+
+![AWS account creation](aws-account-creation.png)
+
+### Step 2: Create an IAM User for MyFile
+
+An IAM (Identity and Access Management) user is like a sub-account within your main AWS account. It has its own credentials and permissions for security.
+
+1. Log in to the AWS Management Console
+2. Navigate to the IAM console (search for "IAM" in the services search bar)
+3. Click "Users" in the sidebar, then "Add user"
+4. Enter a name for the user, like "MyFileDeployer"
+5. Under "Select AWS access type", choose "Programmatic access"
+6. Click "Next: Permissions". On the next page, click "Attach existing policies directly"
+7. Select a policy that grants the user the necesary permissions for deploying MyFile, then click "Next: Tags"
+8. (Optional) Add tags like "App: MyFile" to help identify the user, then click "Next: Review"
+9. Review the user details and click "Create user"
+10. Copy or save the generated "Access key ID" and "Secret access key" - you'll need these later!
+
+You now have an IAM user that the MyFile application can authenticate as to interact with AWS.
+
+![IAM user creation](iam-user-creation.png)
+
+### Step 3: Configure the AWS CLI with MyFile Profile
+
+The AWS CLI (Command Line Interface) lets you interact with AWS from the terminal. Here's how to set it up for MyFile:
+
+1. Install the AWS CLI by following the instructions for your operating system: [aws.amazon.com/cli](https://aws.amazon.com/cli/)
+2. Open a terminal or command prompt
+3. Run the command `aws configure --profile MyFileDeployment`
+4. At the prompts, paste in the "AWS Access Key ID" and "AWS Secret Access Key" you saved earlier when creating the MyFile IAM user
+5. For "Default region name", enter the code for the AWS region you want to deploy MyFile to, like `us-east-1`
+6. For "Default output format", enter `json`
+
+Your AWS CLI now has a `MyFileDeployment` profile configured with the credentials for the MyFile IAM user.
+
+```bash
+$ aws configure --profile MyFileDeployment
+AWS Access Key ID [None]: AKIAI44QH8DHBEXAMPLE
+AWS Secret Access Key [None]: je7MtGbClwBF/2Zp9Utk/h3yCo8nvbEXAMPLEKEY
+Default region name [None]: us-east-1
+Default output format [None]: json
+```
+
+You're all set! With an AWS account and authenticated IAM user for MyFile, you can now deploy the MyFile application to the AWS cloud. The AWS CLI and SDKs can use the `MyFileDeployment` profile you configured to authenticate and interact with AWS services.
+
+To deploy MyFile, you can now run AWS CLI commands with `--profile MyFileDeployment`, or configure your MyFile deployment scripts/tools to use this profile.
+If you use the Deployment Script from this repository, remember to offer as profile name `MyFileDeployment` or whatever profile name you have chosen. You can find more information about the Deployment Script in the [Quickstart Guide](quickstart.md).
+
+Happy deploying MyFile on AWS.
