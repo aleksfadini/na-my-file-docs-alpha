@@ -48,10 +48,12 @@ You can learn more about the API [here](api.md).
 ### na-my-file-api-client
 
 The API client repository provides a client library or SDK that simplifies the interaction with the file upload API. It offers a convenient and intuitive interface for developers to integrate the file upload functionality into their own applications. The API client abstracts away the low-level details of making HTTP requests and handling responses, making it easier to consume the API services.
+You can learn more about the API client [here](api-client.md).
 
 ### na-my-file-client
 
 This repository houses the frontend client application for the file upload system. It includes a user-friendly interface that allows users to upload, view, and manage their documents seamlessly. The client application is built using modern web technologies and frameworks, ensuring a responsive and interactive user experience across different devices and browsers. This application is built in React, using Typescript.
+To learn more about the client application, deploy it separately or customize it, follow the link [here](client.md).
 
 ### na-my-file-core-sdk-pkg
 
@@ -74,4 +76,4 @@ _My File_ welcomes contributions from the community to enhance and expand the ca
 
 ## License
 
-This project is licensed under the MIT License. Please see the LICENSE file in each repository for more details.
+This project is open-source software licensed under the [MIT license](https://opensource.org/licenses/MIT). Feel free to use, modify, and distribute the code as per the terms of the license.
