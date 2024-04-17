@@ -55,7 +55,8 @@ This repository houses the frontend client application for the file upload syste
 
 ### na-my-file-core-sdk-pkg
 
-The core SDK package repository contains shared code, utilities, and libraries that are used across multiple components of the project. It provides a centralized and reusable set of functionalities to maintain consistency and avoid duplication of code. This package can be easily imported and utilized by other repositories within the project.
+The core Software Development Kit (SDK) package repository contains shared code, utilities, and libraries that are used across multiple components of the project. It provides a centralized and reusable set of functionalities to maintain consistency and avoid duplication of code. This package can be easily imported and utilized by other repositories within the project.
+You can learn more about the core SDK Package [here](core-sdk-pkg.md).
 
 ## Other Documentation Pages
 
