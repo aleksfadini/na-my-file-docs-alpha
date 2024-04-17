@@ -1,4 +1,4 @@
-# AWS Deployment Guide for MyFile App
+# AWS Deployment Guide for MyFile
 
 ## Overview
 
