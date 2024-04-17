@@ -36,8 +36,8 @@ Select the guide version that best fits your background and expertise level:
 
 ```bash
 $ aws configure
-AWS Access Key ID [None]: AKIAIOSFODNN7EXAMPLE
-AWS Secret Access Key [None]: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+AWS Access Key ID [None]: EXAMPLEKEYIDXXXX
+AWS Secret Access Key [None]: EXAMPLESECRETKEYXXXXXXXXXXXXX
 Default region name [None]: us-west-2
 Default output format [None]: json
 ```
@@ -113,8 +113,8 @@ Your AWS CLI now has a `MyFileDeployment` profile configured with the credential
 
 ```bash
 $ aws configure --profile MyFileDeployment
-AWS Access Key ID [None]: AKIAI44QH8DHBEXAMPLE
-AWS Secret Access Key [None]: je7MtGbClwBF/2Zp9Utk/h3yCo8nvbEXAMPLEKEY
+AWS Access Key ID [None]: EXAMPLEKEYIDXXXX
+AWS Secret Access Key [None]: EXAMPLESECRETKEYXXXXXXXXXXXXX
 Default region name [None]: us-east-1
 Default output format [None]: json
 ```
