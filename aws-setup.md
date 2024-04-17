@@ -17,16 +17,12 @@ Select the guide version that best fits your background and expertise level:
 - Provide an email address and credit card for billing
 - Consider using an AWS Organization for centralized billing and control
 
-![AWS account creation](aws-account-creation.png)
-
 ### Step 2: Create an IAM User
 
 - Navigate to the IAM (Identity and Access Management) console
 - Create a new user and select "Programmatic access"
-- Attach appropriate permissions policies (e.g. Administrator Access for full control)
+- Attach appropriate permissions policies: (Administrator Access for full control, AmazonElastiCacheFullAccess, AWSCloudFormationFullAccess, CloudFrontFullAccess)
 - Save the generated Access Key ID and Secret Access Key
-
-![IAM user creation](iam-user-creation.png)
 
 ### Step 3: Configure the AWS CLI
 
@@ -77,8 +73,6 @@ The first thing you need to do to use AWS is sign up for an account:
 
 Congrats, you now have an AWS account! Next you'll set up a user for deploying the MyFile app.
 
-![AWS account creation](aws-account-creation.png)
-
 ### Step 2: Create an IAM User for MyFile
 
 An IAM (Identity and Access Management) user is like a sub-account within your main AWS account. It has its own credentials and permissions for security.
@@ -89,14 +83,17 @@ An IAM (Identity and Access Management) user is like a sub-account within your m
 4. Enter a name for the user, like "MyFileDeployer"
 5. Under "Select AWS access type", choose "Programmatic access"
 6. Click "Next: Permissions". On the next page, click "Attach existing policies directly"
-7. Select a policy that grants the user the necesary permissions for deploying MyFile, then click "Next: Tags"
-8. (Optional) Add tags like "App: MyFile" to help identify the user, then click "Next: Review"
+7. Select the following policies that grants the user the necesary permissions for deploying MyFile: Administrator Access for full control, AmazonElastiCacheFullAccess, AWSCloudFormationFullAccess, CloudFrontFullAccess. See the image below for a screenshot of the correct permissions.
+
+![AWS IAM User Permissions for My File](AWS-Permissions.png)
+
+8. Then click "Next: Tags" (Optional) Add tags like "App: MyFile" to help identify the user, then click "Next: Review"
 9. Review the user details and click "Create user"
 10. Copy or save the generated "Access key ID" and "Secret access key" - you'll need these later!
 
-You now have an IAM user that the MyFile application can authenticate as to interact with AWS.
+You now have an IAM user that the MyFile application can authenticate as to interact with AWS. Remember to login with your IAM user, not with the root user (in the login screen shown below).
 
-![IAM user creation](iam-user-creation.png)
+![AWS Login Screen](AWS-SignIn.png)
 
 ### Step 3: Configure the AWS CLI with MyFile Profile
 
