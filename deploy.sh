@@ -119,6 +119,7 @@ cd ..
 echo -e "${GREEN}Preparing the API...${NC}"
 cd na-my-file-api
 npm install || { echo -e "${RED}Failed to install dependencies for API.${NC}"; exit 1; }
+npm run generate-oas-route-specs || { echo -e "${RED}Failed to generate OAS route specs.${NC}"; exit 1; }
 npm run generate-oas-full || { echo -e "${RED}Failed to generate OAS.${NC}"; exit 1; }
 cd ..
 
