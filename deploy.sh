@@ -128,7 +128,7 @@ echo -e "${GREEN}Installing API client dependencies...${NC}"
 cd na-my-file-api-client
 npm install || { echo -e "${RED}Failed to install dependencies for API client.${NC}"; exit 1; }
 npx --yes @hey-api/openapi-ts -i ../na-my-file-api/custom-swagger.json -o ./src || { echo -e "${RED}Failed to generate the TypeScript code from the Swagger specificationins.${NC}"; exit 1; }
-npm build || { echo -e "${RED}Failed to build the API client.${NC}"; exit 1; }
+npm run build || { echo -e "${RED}Failed to build the API client.${NC}"; exit 1; }
 cd ..
 
 # Deploying the API
