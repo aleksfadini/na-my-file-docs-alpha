@@ -64,6 +64,21 @@ else
     environment="prod"
 fi
 
+# Validate AWS profile
+if ! aws sts get-caller-identity --profile "$aws_profile" &>/dev/null; then
+    echo -e "${RED}AWS profile '$aws_profile' is not valid or lacks permissions${NC}"
+    exit 1
+fi
+
+# Check required permissions
+required_services=("s3" "cloudformation" "rds" "cognito-idp" "apigateway")
+for service in "${required_services[@]}"; do
+    if ! aws iam simulate-principal-policy --profile "$aws_profile" [...]; then
+        echo -e "${RED}Missing required permissions for $service${NC}"
+        exit 1
+    fi
+done
+
 #######################
 ## Folder Prep and Repo Cloning
 #######################
@@ -79,7 +94,6 @@ repos=(
     "https://github.com/productlabllc/na-my-file-api.git"
     "https://github.com/productlabllc/na-my-file-api-client.git"
     "https://github.com/productlabllc/na-my-file-client.git"
-    "https://github.com/productlabllc/na-my-file-core-sdk-pkg.git"
 )
 
 for repo in "${repos[@]}"
@@ -97,11 +111,6 @@ echo -e "${GREEN}Done!${NC}"
 ## Installation and Deployment
 #######################
 echo -e "${NC}Starting Installation...${NC}"
-# Install the core SDK package
-echo -e "${NC}Installing core SDK package...${NC}"
-cd na-my-file-core-sdk-pkg
-npm install || { echo -e "${RED}Failed to install core SDK package.${NC}"; exit 1; }
-cd ..
 
 # Deploy the infrastructure
 echo -e "${GREEN}Deploying infrastructure...${NC}"
@@ -135,6 +144,12 @@ cd ..
 echo -e "${GREEN}Deploying the API...${NC}"
 cd na-my-file-api
 AWS_PROFILE="$aws_profile" npm run stack-deploy || { echo -e "${RED}Failed to deploy API.${NC}"; exit 1; }
+cd ..
+
+# Setting up the Database
+echo -e "${GREEN}Setting up the Database...${NC}"
+cd na-my-file-api
+AWS_PROFILE="$aws_profile" npm run db:setup || { echo -e "${RED}Failed to set up the database.${NC}"; exit 1; }
 cd ..
 
 # Deploy the client

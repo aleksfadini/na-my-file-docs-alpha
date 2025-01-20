@@ -6,17 +6,19 @@
 
 - [ ] Delete this doc (INTERNAL-importantToDoListBeforePublishing.md)
 
-### Last Scripts Update
+### End of May Goals
 
-- [ ] Update install script `deploy-dev.sh` to actual GH NA repositories instead of aleksfadini
-- [ ] Update install script `deploy-prod.sh` to actual GH NA repositories instead of aleksfadini
+- [ ] Discuss next steps
+- [ ] Complete end of may documents goals
+- [ ] Update install script `deploy.sh` to actual GH NA repositories instead of aleksfadini
+- [ ] make alpha repo public
 
 ## Adapting And Finetuning Scripts
 
 ### Build Scripts
 
 - [ ] Create and build script `deploy-dev.sh`
-- [ ] Create and build script `deploy-prod.sh`
+- [x] Create and build script `deploy-prod.sh`
 
 ## Testing Scripts
 
@@ -25,8 +27,8 @@
 Also, time the installation and deployments
 
 - [ ] Final test for `deploy-dev.sh`
-- [ ] Final test for `deploy-prod.sh`
+- [x] Final test for `deploy-prod.sh`
 
 ## Other
 
-- [ ] describe My File using the shared slides copy
+- [ ] Check/describe My File using the shared slides copy
