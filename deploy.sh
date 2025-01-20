@@ -128,22 +128,25 @@ cd ..
 echo -e "${GREEN}Preparing the API...${NC}"
 cd na-my-file-api
 npm install || { echo -e "${RED}Failed to install dependencies for API.${NC}"; exit 1; }
-AWS_PROFILE="$aws_profile" npm run generate-oas-route-specs || { echo -e "${RED}Failed to generate OAS route specs.${NC}"; exit 1; }
-AWS_PROFILE="$aws_profile" npm run generate-oas-full || { echo -e "${RED}Failed to generate OAS.${NC}"; exit 1; }
+AWS_PROFILE="$aws_profile" npm run generate-oas || { echo -e "${RED}Failed to generate OAS.${NC}"; exit 1; }
 cd ..
 
 # Install the API client dependencies
 echo -e "${GREEN}Installing API client dependencies...${NC}"
 cd na-my-file-api-client
 npm install || { echo -e "${RED}Failed to install dependencies for API client.${NC}"; exit 1; }
-AWS_PROFILE="$aws_profile" npx --yes @hey-api/openapi-ts -i ../na-my-file-api/custom-swagger.json -o ./src || { echo -e "${RED}Failed to generate the TypeScript code from the Swagger specificationins.${NC}"; exit 1; }
+AWS_PROFILE="$aws_profile" npm run generate-api-client || { echo -e "${RED}Failed to generate the TypeScript code from the Swagger specificationins.${NC}"; exit 1; }
 AWS_PROFILE="$aws_profile" npm run build || { echo -e "${RED}Failed to build the API client.${NC}"; exit 1; }
 cd ..
 
 # Deploying the API
 echo -e "${GREEN}Deploying the API...${NC}"
 cd na-my-file-api
-AWS_PROFILE="$aws_profile" npm run stack-deploy || { echo -e "${RED}Failed to deploy API.${NC}"; exit 1; }
+if [ "$environment" == "dev" ]; then
+    AWS_PROFILE="$aws_profile" npm run stack-deploy-dev || { echo -e "${RED}Failed to deploy API for dev environment.${NC}"; exit 1; }
+else
+    AWS_PROFILE="$aws_profile" npm run stack-deploy-prod || { echo -e "${RED}Failed to deploy API for prod environment.${NC}"; exit 1; }
+fi
 cd ..
 
 # Setting up the Database
@@ -152,7 +155,7 @@ cd na-my-file-api
 AWS_PROFILE="$aws_profile" npm run db:setup || { echo -e "${RED}Failed to set up the database.${NC}"; exit 1; }
 cd ..
 
-# Deploy the client
+# Deploy the client  
 echo -e "${GREEN}Deploying client...${NC}"
 cd na-my-file-client
 npm install || { echo -e "${RED}Failed to install dependencies for client.${NC}"; exit 1; }
