@@ -6,10 +6,13 @@
 
 - [ ] Delete this doc (INTERNAL-importantToDoListBeforePublishing.md)
 
-### End of May Goals
+### Best Replication Goals
 
 - [ ] Discuss next steps
-- [ ] Complete end of may documents goals
+- [ ] rename bucket to include unique name: na-my-file-infra-bucket-newamerica-web-ui-{dev|prod}
+- [ ] rename bucket to include unique name: na-my-file-infra-bucket-web-openapi-{dev|prod}
+- [ ] rename bucket to include unique name: na-my-file-infra-na-user-pool-domain-dev
+- [ ] rename bucket to include unique name: na-my-file-na-myfile-documents-bucket-{env} (from api repo)
 - [ ] Update install script `deploy.sh` to actual GH NA repositories instead of aleksfadini
 - [ ] make alpha repo public
 

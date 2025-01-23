@@ -71,13 +71,13 @@ if ! aws sts get-caller-identity --profile "$aws_profile" &>/dev/null; then
 fi
 
 # Check required permissions
-required_services=("s3" "cloudformation" "rds" "cognito-idp" "apigateway")
-for service in "${required_services[@]}"; do
-    if ! aws iam simulate-principal-policy --profile "$aws_profile" [...]; then
-        echo -e "${RED}Missing required permissions for $service${NC}"
-        exit 1
-    fi
-done
+# required_services=("s3" "cloudformation" "rds" "cognito-idp" "apigateway")
+# for service in "${required_services[@]}"; do
+#     if ! aws iam simulate-principal-policy --profile "$aws_profile" [...]; then
+#         echo -e "${RED}Missing required permissions for $service${NC}"
+#         exit 1
+#     fi
+# done
 
 #######################
 ## Folder Prep and Repo Cloning
