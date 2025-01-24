@@ -124,18 +124,18 @@ else
 fi
 cd ..
 
-# Prepare the API
-echo -e "${GREEN}Preparing the API...${NC}"
+# Prepare the API and generate OpenAPI spec
+echo -e "${GREEN}Preparing the API and generating OpenAPI spec...${NC}"
 cd na-my-file-api
 npm install || { echo -e "${RED}Failed to install dependencies for API.${NC}"; exit 1; }
 AWS_PROFILE="$aws_profile" npm run generate-oas || { echo -e "${RED}Failed to generate OAS.${NC}"; exit 1; }
+AWS_PROFILE="$aws_profile" npm run generate-api-client || { echo -e "${RED}Failed to generate API client code.${NC}"; exit 1; }
 cd ..
 
-# Install the API client dependencies
-echo -e "${GREEN}Installing API client dependencies...${NC}"
+# Install and build the API client
+echo -e "${GREEN}Building API client...${NC}"
 cd na-my-file-api-client
 npm install || { echo -e "${RED}Failed to install dependencies for API client.${NC}"; exit 1; }
-AWS_PROFILE="$aws_profile" npm run generate-api-client || { echo -e "${RED}Failed to generate the TypeScript code from the Swagger specificationins.${NC}"; exit 1; }
 AWS_PROFILE="$aws_profile" npm run build || { echo -e "${RED}Failed to build the API client.${NC}"; exit 1; }
 cd ..
 
@@ -152,6 +152,9 @@ cd ..
 # Setting up the Database
 echo -e "${GREEN}Setting up the Database...${NC}"
 cd na-my-file-api
+# Add these lines before db:setup
+chmod +x ./src/scripts/db-setup-tunnel
+chmod +x ./src/scripts/ssh-tunnel
 AWS_PROFILE="$aws_profile" npm run db:setup || { echo -e "${RED}Failed to set up the database.${NC}"; exit 1; }
 cd ..
 
@@ -165,6 +168,18 @@ else
     AWS_PROFILE="$aws_profile" npm run deploy-prod || { echo -e "${RED}Failed to deploy client for prod environment.${NC}"; exit 1; }
 fi
 cd ..
+
+
+# Get and print the website URL
+echo -e "${GREEN}Getting the website URL...${NC}"
+if [ "$environment" == "dev" ]; then
+    CLOUDFRONT_DIST_ID=$(aws ssm get-parameter --profile "$aws_profile" --region "$AWS_DEFAULT_REGION" --name "/na-my-file-infra/dev/newamerica-web-ui-cloudfront-dist-id" --query "Parameter.Value" --output text)
+    website_url=$(aws cloudfront get-distribution --profile "$aws_profile" --region "$AWS_DEFAULT_REGION" --id "$CLOUDFRONT_DIST_ID" --query "Distribution.DomainName" --output text)
+else
+    CLOUDFRONT_DIST_ID=$(aws ssm get-parameter --profile "$aws_profile" --region "$AWS_DEFAULT_REGION" --name "/na-my-file-infra/prod/newamerica-web-ui-cloudfront-dist-id" --query "Parameter.Value" --output text)
+    website_url=$(aws cloudfront get-distribution --profile "$aws_profile" --region "$AWS_DEFAULT_REGION" --id "$CLOUDFRONT_DIST_ID" --query "Distribution.DomainName" --output text)
+fi
+echo -e "${GREEN}Your website is available at: ${BLUE}https://$website_url${NC}"
 
 # Record the end time
 end_time=$(date +%s)

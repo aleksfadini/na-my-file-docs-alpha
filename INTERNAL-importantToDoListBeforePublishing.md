@@ -15,6 +15,7 @@
 - [ ] rename bucket to include unique name: na-my-file-na-myfile-documents-bucket-{env} (from api repo)
 - [ ] Update install script `deploy.sh` to actual GH NA repositories instead of aleksfadini
 - [ ] make alpha repo public
+- [ ] vomit out the url to visit taken from aws cli
 
 ## Adapting And Finetuning Scripts
 
@@ -35,3 +36,47 @@ Also, time the installation and deployments
 ## Other
 
 - [ ] Check/describe My File using the shared slides copy
+
+# WEAK POINTS:
+
+Make sure user has all permissions correctly, such in AWS_PROFILE=my-file-test aws iam list-attached-user-policies --user-name MyFileDeploymentTest
+{
+"AttachedPolicies": [
+{
+"PolicyName": "AmazonAPIGatewayAdministrator",
+"PolicyArn": "arn:aws:iam::aws:policy/AmazonAPIGatewayAdministrator"
+},
+{
+"PolicyName": "CloudFrontFullAccess",
+"PolicyArn": "arn:aws:iam::aws:policy/CloudFrontFullAccess"
+},
+{
+"PolicyName": "AmazonSSMFullAccess",
+"PolicyArn": "arn:aws:iam::aws:policy/AmazonSSMFullAccess"
+},
+{
+"PolicyName": "AmazonEC2FullAccess",
+"PolicyArn": "arn:aws:iam::aws:policy/AmazonEC2FullAccess"
+},
+{
+"PolicyName": "IAMFullAccess",
+"PolicyArn": "arn:aws:iam::aws:policy/IAMFullAccess"
+},
+{
+"PolicyName": "AmazonElastiCacheFullAccess",
+"PolicyArn": "arn:aws:iam::aws:policy/AmazonElastiCacheFullAccess"
+},
+{
+"PolicyName": "AmazonS3FullAccess",
+"PolicyArn": "arn:aws:iam::aws:policy/AmazonS3FullAccess"
+},
+{
+"PolicyName": "AWSCloudFormationFullAccess",
+"PolicyArn": "arn:aws:iam::aws:policy/AWSCloudFormationFullAccess"
+},
+{
+"PolicyName": "AWSLambda_FullAccess",
+"PolicyArn": "arn:aws:iam::aws:policy/AWSLambda_FullAccess"
+}
+]
+}
