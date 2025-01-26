@@ -6,8 +6,17 @@ REGION="us-east-1"
 
 echo "Starting cleanup..."
 
+# Delete secrets from Secrets Manager
+echo "Deleting secrets..."
+for secret in $(aws secretsmanager list-secrets --profile $PROFILE --region $REGION \
+    --query 'SecretList[?contains(Name, `bastion-host-keypair-main`)].Name' --output text); do
+    echo "Deleting secret: $secret"
+    aws secretsmanager delete-secret --secret-id $secret --force-delete-without-recovery \
+        --profile $PROFILE --region $REGION
+done
+
+# Delete CloudFormation stacks
 echo "Deleting CloudFormation stacks..."
-# Get all stacks except CDK toolkit stack
 for stack in $(aws cloudformation list-stacks --profile $PROFILE --region $REGION \
     --query 'StackSummaries[?StackStatus!=`DELETE_COMPLETE` && !contains(StackName, `CDKToolkit`)].StackName' --output text); do
     echo "Deleting stack: $stack"
@@ -75,4 +84,58 @@ for func in $(aws lambda list-functions --profile $PROFILE --region $REGION \
     aws lambda delete-function --function-name $func --profile $PROFILE --region $REGION
 done
 
-echo "Cleanup complete!"
+
+# Delete secrets from Secrets Manager
+echo "Deleting secrets..."
+for secret in $(aws secretsmanager list-secrets --profile $PROFILE --region $REGION \
+    --query 'SecretList[?contains(Name, `bastion-host-keypair-main`)].Name' --output text); do
+    echo "Deleting secret: $secret"
+    aws secretsmanager delete-secret --secret-id $secret --force-delete-without-recovery \
+        --profile $PROFILE --region $REGION
+done
+
+
+echo "Cleanup completed!"
+
+
+echo "=== CHECKING ALL RESOURCES ==="
+
+echo -e "\n1. CloudFormation Stacks:"
+aws cloudformation list-stacks --profile $PROFILE --region $REGION \
+    --query 'StackSummaries[?StackStatus!=`DELETE_COMPLETE`].[StackName,StackStatus]' \
+    --output table
+
+echo -e "\n2. Secrets in Secrets Manager:"
+aws secretsmanager list-secrets --profile $PROFILE --region $REGION \
+    --query 'SecretList[?contains(Name, `na-my-file`) || contains(Name, `postgres`) || contains(Name, `bastion`)].[Name,ARN]' \
+    --output table
+
+echo -e "\n3. SSM Parameters:"
+aws ssm get-parameters-by-path --path "/" --recursive --profile $PROFILE --region $REGION \
+    --query 'Parameters[?contains(Name, `na-my-file`)].[Name,Type]' \
+    --output table
+
+echo -e "\n4. S3 Buckets:"
+aws s3api list-buckets --profile $PROFILE \
+    --query 'Buckets[?contains(Name, `na-my-file`)].[Name,CreationDate]' \
+    --output table
+
+echo -e "\n5. RDS Instances:"
+aws rds describe-db-instances --profile $PROFILE --region $REGION \
+    --query 'DBInstances[?contains(DBInstanceIdentifier, `na-my-file`)].[DBInstanceIdentifier,DBInstanceStatus]' \
+    --output table
+
+echo -e "\n6. Lambda Functions:"
+aws lambda list-functions --profile $PROFILE --region $REGION \
+    --query 'Functions[?contains(FunctionName, `na-my-file`)].[FunctionName,Runtime]' \
+    --output table
+
+echo -e "\n7. API Gateway APIs:"
+aws apigateway get-rest-apis --profile $PROFILE --region $REGION \
+    --query 'items[?contains(name, `na-my-file`)].[name,id]' \
+    --output table
+
+echo -e "\n8. Cognito User Pools:"
+aws cognito-idp list-user-pools --max-results 60 --profile $PROFILE --region $REGION \
+    --query 'UserPools[?contains(Name, `na-my-file`)].[Name,Id]' \
+    --output table
