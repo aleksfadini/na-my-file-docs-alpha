@@ -4,7 +4,7 @@ Welcome to _My File_! This is the documentation hub, where you can orient yourse
 
 ## What is _My File_?
 
-_My File_ is a document storage and sharing mobile-first website developed, managed, and piloted by New America. It provides residents of a jurisdiction a safe and secure place to manage their family’s vital documents. _My File_ makes it easy to decide what documents to share and unshare and decide who to share the documents with.
+_My File_ is a document storage and sharing mobile-first website developed, managed, and piloted by New America. It provides residents of a jurisdiction a safe and secure place to manage their family's vital documents. _My File_ makes it easy to decide what documents to share and unshare and decide who to share the documents with.
 
 ### Key Features
 
@@ -77,3 +77,35 @@ _My File_ welcomes contributions from the community to enhance and expand the ca
 ## License
 
 This project is open-source software licensed under the [MIT license](https://opensource.org/licenses/MIT). Feel free to use, modify, and distribute the code as per the terms of the license.
+
+## Additional Resources
+
+### Customization Guide
+
+Want to adapt My File for your organization? Our [Customization Guide](Customization.md) provides comprehensive instructions for:
+
+- Branding and styling
+- Resource naming
+- Email templates
+- Environment configurations
+- Security settings
+
+### Troubleshooting
+
+Encountering issues? Check our [Troubleshooting Guide](troubleshooting.md) for:
+
+- Common deployment issues
+- Permission problems
+- Resource naming conflicts
+- Environment setup solutions
+
+### Future Development
+
+Interested in My File's future? Our [Roadmap](ROADMAP.md) outlines:
+
+- Current limitations
+- Planned improvements
+- Implementation priorities
+- Areas needing contribution
+
+We encourage you to explore these resources and contribute to the project's growth. For any questions or suggestions, please open an issue in the appropriate repository.

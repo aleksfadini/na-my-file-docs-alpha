@@ -26,15 +26,20 @@ For the fastest installation and deployment of My File, you can utilize the prov
 
 1. Launch the script by running the following command in your terminal:
 
-   ```
-   ./deploy-prod.sh
+   ```bash
+   ./deploy.sh
    ```
 
-2. The script will prompt you to specify the location within your home folder where you wish to install the repository files before deployment. Please provide the desired path when requested.
+2. The script will:
+
+   - Ask whether you want to deploy to development or production environment
+   - Guide you through the deployment process
 
 3. Follow the on-screen instructions to complete the installation and deployment process.
 
-If you prefer a slightly longer but manual installation process, please refer to the next section, _Manual Installation and Deployment_, for detailed instructions.
+> **Recommended**: We strongly suggest deploying to a development environment first to test your configuration before deploying to production.
+
+If you prefer a manual installation process, please refer to the next section, _Manual Installation and Deployment_, for detailed instructions.
 
 ## Manual Installation and Deployment
 
@@ -98,8 +103,36 @@ Congratulations! You have successfully deployed the My File repositories. The sy
 
 ## Next Steps
 
-- Refer to the individual repository documentation for detailed information on configuration, customization, and usage.
-- Explore the deployed applications and start using the My File system.
-- If you encounter any issues or have questions, please refer to the troubleshooting guides or reach out to the My File community for support.
+After successfully deploying My File, here are the recommended next steps:
+
+### 1. Development Environment
+
+We strongly recommend setting up a development environment first:
+
+- Test your configurations in development before production
+- See [Troubleshooting Guide](troubleshooting.md) if you encounter any issues
+
+### 2. Customization
+
+To adapt My File for your organization:
+
+- Follow our [Customization Guide](Customization.md) to configure:
+  - Organization details
+  - Resource naming
+  - Email templates
+  - Frontend branding
+  - Security settings
+
+### 3. Further Resources
+
+- Return to the [main documentation](index.md) for comprehensive project information
+- Review individual repository documentation for detailed configuration options
+- Check our [Roadmap](ROADMAP.md) for upcoming features and improvements
+
+### 4. Getting Help
+
+- Consult the [Troubleshooting Guide](troubleshooting.md) for common issues
+- Open an issue in the appropriate repository for technical support
+- Join the community discussions for best practices and tips
 
 Happy document management & sharing with My File!

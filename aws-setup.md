@@ -34,7 +34,7 @@ Select the guide version that best fits your background and expertise level:
 $ aws configure
 AWS Access Key ID [None]: EXAMPLEKEYIDXXXX
 AWS Secret Access Key [None]: EXAMPLESECRETKEYXXXXXXXXXXXXX
-Default region name [None]: us-west-2
+Default region name [None]: us-east-1
 Default output format [None]: json
 ```
 
