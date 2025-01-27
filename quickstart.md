@@ -119,7 +119,7 @@ To adapt My File for your organization:
 
 - Return to the [main documentation](index.md) for comprehensive project information
 - Review individual repository documentation for detailed configuration options
-- Check our [Roadmap](ROADMAP.md) for upcoming features and improvements
+- Check our [Roadmap](roadmap.md) for upcoming features and improvements
 
 ### 4. Getting Help
 

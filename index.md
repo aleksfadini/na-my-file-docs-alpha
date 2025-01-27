@@ -96,7 +96,7 @@ Encountering issues? Check our [Troubleshooting Guide](troubleshooting.md) for:
 
 ### Future Development
 
-Interested in My File's future? Our [Roadmap](ROADMAP.md) outlines:
+Interested in My File's future? Our [Roadmap](roadmap.md) outlines:
 
 - Current limitations
 - Planned improvements
