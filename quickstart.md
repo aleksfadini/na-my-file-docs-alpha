@@ -50,23 +50,15 @@ This section provides instructions for manually installing and deploying My File
 Clone the required My File repositories:
 
 ```bash
-git clone https://github.com/your-org/na-my-file-infra.git
-git clone https://github.com/your-org/na-my-file-api.git
-git clone https://github.com/your-org/na-my-file-api-client.git
-git clone https://github.com/your-org/na-my-file-client.git
-git clone https://github.com/your-org/na-my-file-core-sdk-pkg.git
+git clone https://github.com/newamericafoundation/na-my-file-infra.git
+git clone https://github.com/newamericafoundation/na-my-file-api.git
+git clone https://github.com/newamericafoundation/na-my-file-api-client.git
+git clone https://github.com/newamericafoundation/na-my-file-client.git
 ```
 
 ### Deployment
 
-1. Install the core SDK package:
-
-   ```bash
-   cd ../na-my-file-core-sdk-pkg
-   npm install
-   ```
-
-2. Deploy the infrastructure:
+1. Deploy the infrastructure:
 
    ```bash
    cd na-my-file-infra
@@ -75,7 +67,7 @@ git clone https://github.com/your-org/na-my-file-core-sdk-pkg.git
    npm run stack-deploy-dev
    ```
 
-3. Deploy the API:
+2. Deploy the API:
 
    ```bash
    cd ../na-my-file-api
@@ -83,7 +75,7 @@ git clone https://github.com/your-org/na-my-file-core-sdk-pkg.git
    npm run stack-deploy
    ```
 
-4. Deploy the API client:
+3. Deploy the API client:
 
    ```bash
    cd ../na-my-file-api-client
@@ -91,7 +83,7 @@ git clone https://github.com/your-org/na-my-file-core-sdk-pkg.git
    npm run stack-deploy-prod
    ```
 
-5. Deploy the client:
+4. Deploy the client:
 
    ```bash
    cd ../na-my-file-client

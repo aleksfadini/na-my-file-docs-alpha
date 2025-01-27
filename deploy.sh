@@ -90,10 +90,10 @@ echo -e "${GREEN}Done!${NC}"
 echo -e "${NC}Cloning Repos...${NC}"
 # Clone the required repositories
 repos=(
-    "https://github.com/productlabllc/na-my-file-infra.git"
-    "https://github.com/productlabllc/na-my-file-api.git"
-    "https://github.com/productlabllc/na-my-file-api-client.git"
-    "https://github.com/productlabllc/na-my-file-client.git"
+    "https://github.com/newamericafoundation/na-my-file-infra.git"
+    "https://github.com/newamericafoundation/na-my-file-api.git"
+    "https://github.com/newamericafoundation/na-my-file-api-client.git"
+    "https://github.com/newamericafoundation/na-my-file-client.git"
 )
 
 for repo in "${repos[@]}"
@@ -171,15 +171,15 @@ cd ..
 
 
 # Get and print the website URL
-echo -e "${GREEN}Getting the website URL...${NC}"
-if [ "$environment" == "dev" ]; then
-    CLOUDFRONT_DIST_ID=$(aws ssm get-parameter --profile "$aws_profile" --region us-east-1 --name "/na-my-file-infra/dev/newamerica-web-ui-cloudfront-dist-id" --query "Parameter.Value" --output text)
-    website_url=$(aws cloudfront get-distribution --profile "$aws_profile" --region us-east-1 --id "$CLOUDFRONT_DIST_ID" --query "Distribution.DomainName" --output text)
-else
-    CLOUDFRONT_DIST_ID=$(aws ssm get-parameter --profile "$aws_profile" --region us-east-1 --name "/na-my-file-infra/prod/newamerica-web-ui-cloudfront-dist-id" --query "Parameter.Value" --output text)
-    website_url=$(aws cloudfront get-distribution --profile "$aws_profile" --region us-east-1 --id "$CLOUDFRONT_DIST_ID" --query "Distribution.DomainName" --output text)
-fi
-echo -e "${GREEN}Your website is available at: ${BLUE}https://$website_url${NC}"
+# echo -e "${GREEN}Getting the website URL...${NC}"
+# if [ "$environment" == "dev" ]; then
+#     CLOUDFRONT_DIST_ID=$(aws ssm get-parameter --profile "$aws_profile" --region us-east-1 --name "/na-my-file-infra/dev/newamerica-web-ui-cloudfront-dist-id" --query "Parameter.Value" --output text)
+#     website_url=$(aws cloudfront get-distribution --profile "$aws_profile" --region us-east-1 --id "$CLOUDFRONT_DIST_ID" --query "Distribution.DomainName" --output text)
+# else
+#     CLOUDFRONT_DIST_ID=$(aws ssm get-parameter --profile "$aws_profile" --region us-east-1 --name "/na-my-file-infra/prod/newamerica-web-ui-cloudfront-dist-id" --query "Parameter.Value" --output text)
+#     website_url=$(aws cloudfront get-distribution --profile "$aws_profile" --region us-east-1 --id "$CLOUDFRONT_DIST_ID" --query "Distribution.DomainName" --output text)
+# fi
+# echo -e "${GREEN}Your website is available at: ${BLUE}https://$website_url${NC}"
 
 # Record the end time
 end_time=$(date +%s)

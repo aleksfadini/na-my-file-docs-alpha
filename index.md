@@ -55,11 +55,6 @@ You can learn more about the API client [here](api-client.md).
 This repository houses the frontend client application for the file upload system. It includes a user-friendly interface that allows users to upload, view, and manage their documents seamlessly. The client application is built using modern web technologies and frameworks, ensuring a responsive and interactive user experience across different devices and browsers. This application is built in React, using Typescript.
 To learn more about the client application, deploy it separately or customize it, follow the link [here](client.md).
 
-### na-my-file-core-sdk-pkg
-
-The core Software Development Kit (SDK) package repository contains shared code, utilities, and libraries that are used across multiple components of the project. It provides a centralized and reusable set of functionalities to maintain consistency and avoid duplication of code. This package can be easily imported and utilized by other repositories within the project.
-You can learn more about the core SDK Package [here](core-sdk-pkg.md).
-
 ## Other Documentation Pages
 
 ### Amazon Web Service (AWS) Setup
