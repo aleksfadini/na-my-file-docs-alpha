@@ -104,6 +104,53 @@ export API_RATE_LIMIT="100"  # Requests per minute
 export MAX_FILE_SIZE="10"    # In MB
 ```
 
+## Text and Localization Customization
+
+The My File application uses i18n for internationalization and localization. All text content, including terms of use, is stored in markdown files that can be easily customized.
+
+1. Navigate to `na-my-file-client/src/i18n/`:
+
+```bash
+na-my-file-client/src/i18n/
+├── en/                  # English translations
+│   ├── common.md       # Common text elements
+│   ├── terms.md        # Terms of use
+│   └── privacy.md      # Privacy policy
+├── es/                 # Spanish translations
+│   ├── common.md
+│   ├── terms.md
+│   └── privacy.md
+└── other languages...
+```
+
+2. Edit the markdown files to customize text content. For example, in `en/terms.md`:
+
+```markdown
+# Terms of Use
+
+Welcome to My File. By using this service, you agree to these terms.
+
+## 1. Acceptance of Terms
+
+By accessing and using this application...
+```
+
+3. Add new languages by creating new language folders with corresponding markdown files.
+
+4. Update language settings in `na-my-file-client/src/config/i18n.ts`:
+
+```typescript
+export const SUPPORTED_LANGUAGES = {
+  en: "English",
+  es: "Español",
+  // Add more languages as needed
+};
+
+export const DEFAULT_LANGUAGE = "en";
+```
+
+Note: The current NYC-specific text is a placeholder and should be replaced with your organization's content.
+
 ## Security Customization
 
 1. Update CORS settings in `na-my-file-api/infra/lib/cdk-stack.ts`
