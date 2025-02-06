@@ -4,13 +4,13 @@ Welcome to _My File_! This is the documentation hub, where you can orient yourse
 
 ## What is _My File_?
 
-_My File_ is a document storage and sharing mobile-first website developed, managed, and piloted by New America. It provides residents of a jurisdiction a safe and secure place to manage their family's vital documents. _My File_ makes it easy to decide what documents to share and unshare and decide who to share the documents with.
+_My File_ is a mobile-first, open-source platform designed for secure document storage and sharing. Developed and managed through a collaborative, public-interest approach, _My File_ represents a scalable and replicable digital public good informed by human-centered design principles.
 
 ### Key Features
 
 - Upload and manage secure, encrypted backups of vital documents like ID cards, social security cards, utility bills, etc.
 - View, download or delete anytime.
-- Share when applying for temporary shelter, housing or any other service.
+- Share when applying for services or public programs.
 - Administrators can sort, download and update the status of documents.
 
 ### Open Source and Available for All Jurisdictions

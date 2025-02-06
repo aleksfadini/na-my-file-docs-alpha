@@ -36,6 +36,7 @@ Also, time the installation and deployments
 ## Other
 
 - [ ] Check/describe My File using the shared slides copy
+- [ ] Add paragraph about needing more debugging
 
 # WEAK POINTS:
 
