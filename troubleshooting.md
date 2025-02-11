@@ -165,12 +165,7 @@ This script will:
 2. Prompt for confirmation before deletion
 3. Clean up resources in the correct order to avoid dependency issues
 
-For reference, see the cleanup script implementation here:
-
-```shell:na-my-file-docs-alpha/cleanup.sh
-startLine: 107
-endLine: 131
-```
+For reference, see the cleanup script implementation.
 
 ## Best Practices
 
@@ -207,35 +202,14 @@ When deploying this open source project, keep in mind:
 
 - All resource names include a prefix (e.g., `na-my-file-`)
 - Add your own unique identifier to avoid conflicts
-- See the internal documentation for naming conventions:
-
-```markdown:na-my-file-docs-alpha/INTERNAL-importantToDoListBeforePublishing.md
-startLine: 11
-endLine: 15
-```
 
 2. AWS Profile Setup
 
 - Create a dedicated AWS profile for the project
-- Required permissions are documented in:
-
-```markdown:na-my-file-docs-alpha/INTERNAL-importantToDoListBeforePublishing.md
-startLine: 42
-endLine: 82
-```
+- Required permissions
 
 3. Infrastructure Components
-   The project uses multiple AWS services as documented in:
-
-```markdown:na-my-file-infra/README.md
-startLine: 24
-endLine: 31
-```
+   The project uses multiple AWS services as documented throughout the docs.
 
 4. Deployment Order
-   Follow the quickstart guide's deployment order to ensure dependencies are met:
-
-```markdown:na-my-file-docs-alpha/quickstart.md
-startLine: 64
-endLine: 95
-```
+   Follow the quickstart guide's deployment order to ensure dependencies are met.

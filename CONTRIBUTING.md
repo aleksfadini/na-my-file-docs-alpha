@@ -12,11 +12,6 @@ By participating in this project, you agree to maintain a respectful and inclusi
 2. Clone your fork
 3. Set up the development environment following our [Quickstart Guide](quickstart.md):
 
-```markdown:na-my-file-docs-alpha/quickstart.md
-startLine: 58
-endLine: 95
-```
-
 ## Development Process
 
 ### 1. Branching Strategy
@@ -28,12 +23,7 @@ endLine: 95
 
 ### 2. Environment Setup
 
-Follow the infrastructure setup guide:
-
-```markdown:na-my-file-infra/README.md
-startLine: 34
-endLine: 39
-```
+See the complete [Infrastructure Setup Guide](../na-my-file-infra/README.md)
 
 ### 3. Code Style
 
@@ -52,12 +42,7 @@ Before submitting a PR:
 3. Test deployment in a dev environment
 4. Verify customization options still work
 
-See customization options here:
-
-```markdown:na-my-file-docs-alpha/Customization.md
-startLine: 40
-endLine: 44
-```
+See our [Customization Guide](customization.md) for details.
 
 ### 5. Pull Request Process
 
@@ -86,31 +71,16 @@ When modifying infrastructure:
 3. Test in isolated environment first
 4. Document changes in architecture diagrams
 
-See infrastructure components:
-
-```markdown:na-my-file-infra/README.md
-startLine: 71
-endLine: 125
-```
+For details, see our [Infrastructure Documentation](../na-my-file-infra/README.md)
 
 ## Security
 
 - Never commit sensitive information
-- Follow security features outlined here:
-
-```markdown:na-my-file-infra/README.md
-startLine: 127
-endLine: 133
-```
+- See our complete [Security Features Guide](../na-my-file-infra/README.md#security-features)
 
 ## Future Improvements
 
-Check our roadmap before starting major changes:
-
-```markdown:na-my-file-docs-alpha/roadmap.md
-startLine: 93
-endLine: 110
-```
+Before starting major changes, review our [Project Roadmap](roadmap.md)
 
 ## Getting Help
 

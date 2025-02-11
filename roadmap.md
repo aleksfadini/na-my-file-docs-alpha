@@ -10,13 +10,6 @@ This document outlines the future direction of the My File project and current l
 - While `ORG_NAME_ABBV` helps with customization, certain resources don't use this variable
 - Multiple deployments in the same account require manual renaming
 
-Reference to resource naming in internal docs:
-
-```markdown:na-my-file-docs-alpha/INTERNAL-importantToDoListBeforePublishing.md
-startLine: 11
-endLine: 15
-```
-
 ### 2. Configuration Management
 
 - Agent emails are hardcoded in `na-my-file-api/src/constants.ts`

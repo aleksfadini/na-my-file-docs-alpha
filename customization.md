@@ -4,7 +4,7 @@ This guide explains how to customize My File for your organization. We'll cover 
 
 ## Organization Details
 
-1. Update `params.env` in each repository:
+Update `params.env` in _each_ repository:
 
 ```bash:na-my-file-infra/params.env
 # Organization Details
@@ -14,13 +14,6 @@ export BUSINESS_UNIT="Your Department"
 export TECHNICAL_CONTACT="tech@example.com"
 ```
 
-2. Update API configuration in `na-my-file-api/infra/config.ts`:
-
-```typescript
-startLine: 28;
-endLine: 41;
-```
-
 ## Resource Naming
 
 Update bucket names and resources in `params.env` files:
@@ -28,13 +21,6 @@ Update bucket names and resources in `params.env` files:
 ```bash:na-my-file-api/params.env
 # Customize bucket names with your organization prefix
 export CLIENT_FILE_BUCKET_NAME="yourorg-documents-bucket-$DEPLOYMENT_TARGET"
-```
-
-See the internal documentation for all resources that need unique names:
-
-```markdown:na-my-file-docs-alpha/INTERNAL-importantToDoListBeforePublishing.md
-startLine: 11
-endLine: 15
 ```
 
 ## Data Model Customization
@@ -160,27 +146,15 @@ Note: The current NYC-specific text is a placeholder and should be replaced with
 ## Advanced Customization
 
 1. Infrastructure Stacks:
-
-```markdown:na-my-file-infra/README.md
-startLine: 71
-endLine: 81
-```
+   See the complete [Infrastructure README](../na-my-file-infra/README.md) for detailed configuration options.
 
 2. API Features:
-
-```markdown:na-my-file-docs-alpha/api.md
-startLine: 18
-endLine: 28
-```
+   Refer to the [API Documentation](api.md) for complete API customization details.
 
 ## Testing Your Customization
 
 1. Deploy to development environment first:
-
-```markdown:na-my-file-docs-alpha/quickstart.md
-startLine: 64
-endLine: 71
-```
+   Follow the step-by-step instructions in our [Quickstart Guide](quickstart.md)
 
 2. Verify all customizations work as expected
 3. Run the test suite for each component

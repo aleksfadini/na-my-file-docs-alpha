@@ -14,8 +14,13 @@
 - [x] rename bucket to include unique name: na-my-file-infra-na-user-pool-domain-dev
 - [x] rename bucket to include unique name: na-my-file-na-myfile-documents-bucket-{env} (from api repo)
 - [x] Update install script `deploy.sh` to actual GH NA repositories instead of aleksfadini
-- [ ] make alpha repo public
 - [x] vomit out the url to visit taken from aws cli
+- [x] Check/describe My File using the shared slides copy
+- [x] Add paragraph about needing more debugging needed due to time constraints and about this code not actively maintained, so issues might arise that require fixin
+- [x] Add paragraph about the fact that each part of the project can be taken out and deployed separately to hopefully help other digital services and digital infrastructure teams
+- [x] Search for immigration checklist and make sure they are not present
+- [x] convert awsdeploy doc into guide to rename domain
+- [ ] change numbers in the docs into lines cited
 
 ## Adapting And Finetuning Scripts
 
@@ -32,11 +37,6 @@ Also, time the installation and deployments
 
 - [x] Final test for `deploy-dev.sh`
 - [x] Final test for `deploy-prod.sh`
-
-## Other
-
-- [x] Check/describe My File using the shared slides copy
-- [ ] Add paragraph about needing more debugging
 
 # WEAK POINTS:
 

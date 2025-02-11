@@ -67,7 +67,7 @@ If you want to learn more about all of the components, programs and technologies
 
 ## Contributing
 
-_My File_ welcomes contributions from the community to enhance and expand the capabilities of this project. If you'd like to contribute, please review the contribution guidelines outlined in the respective repositories and the documentation repository (na-my-file-docs). Feel free to submit bug reports, feature requests, or pull requests to help improve the project.
+_My File_ welcomes contributions from the community to enhance and expand the capabilities of this project. If you'd like to contribute, please review the contribution guidelines outlined in the respective repositories and the documentation repository (na-my-file-docs). Feel free to submit bug reports, feature requests, or pull requests to help improve the project. See our [Contributing Guide](CONTRIBUTING.md).
 
 ## License
 
@@ -77,7 +77,7 @@ This project is open-source software licensed under the [MIT license](https://op
 
 ### Customization Guide
 
-Want to adapt My File for your organization? Our [Customization Guide](Customization.md) provides comprehensive instructions for:
+Want to adapt My File for your organization? Our [Customization Guide](customization.md) provides comprehensive instructions for:
 
 - Branding and styling
 - Resource naming
@@ -93,6 +93,21 @@ Encountering issues? Check our [Troubleshooting Guide](troubleshooting.md) for:
 - Permission problems
 - Resource naming conflicts
 - Environment setup solutions
+
+Please note that while _My File_ is functional and ready for deployment, it may require additional debugging and testing in your specific environment. Due to time constraints during development, some edge cases or environment-specific issues might need addressing. As this code is not actively maintained by a dedicated team, you may encounter issues that require fixing. We encourage users to report issues and contribute fixes through pull requests to help improve the platform for everyone.
+
+### Modular Components: Use What You Need
+
+_My File_ was architected as a collection of independent, modular components that can be adopted individually or as a complete platform. This design approach enables organizations to leverage specific components while maintaining their existing systems. Each module is built with modern cloud architecture principles and follows infrastructure-as-code practices. Whether you need a complete document management solution or just specific components, our modular architecture makes it easy to take what serves you best:
+
+- **Flexible Implementation**: Organizations can implement individual components, from secure file handling to user management
+- **Independent Integration**: Each module functions independently, enabling seamless integration with existing systems (provided it's customized correctly)
+- **Scalable Architecture**: Components can be scaled according to specific organizational requirements
+- **Simplified Maintenance**: Updates and modifications can be made to individual components without system-wide changes
+- **Resource Efficiency**: Selective deployment of components helps optimize infrastructure costs
+
+As an open-source platform, _My File_ provides organizations with reliable, well-documented components for building secure document management systems.
+We encourage you to explore, adopt, and adapt any part of _My File_ that can help serve your community better.
 
 ### Future Development
 
